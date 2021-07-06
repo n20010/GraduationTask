@@ -8,6 +8,11 @@ gem 'webpacker',  '4.0.7'
 gem 'turbolinks', '5.2.0'
 gem 'jbuilder',   '2.9.1'
 gem 'bootsnap',   '1.4.5', require: false
+gem 'twitter'
+gem 'oauth'
+gem 'omniauth-twitter'
+gem 'dotenv-rails'
+gem 'config'
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'
