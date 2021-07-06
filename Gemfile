@@ -13,6 +13,7 @@ gem 'oauth'
 gem 'omniauth-twitter'
 gem 'dotenv-rails'
 gem 'config'
+gem 'minitest-reporters'
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'

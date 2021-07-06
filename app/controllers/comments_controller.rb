@@ -1,9 +1,11 @@
 class CommentsController < ApplicationController
-  before_action :twitter_client
+  before_action :twitter_client, only: [:twitter]
   
   def index
   end
   
+  def youtube
+  end
   
   def twitter
     #ツイート検索のオプションを記入
