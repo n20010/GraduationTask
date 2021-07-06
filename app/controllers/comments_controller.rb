@@ -2,15 +2,19 @@ class CommentsController < ApplicationController
   before_action :twitter_client
   
   def index
-    
+  end
+  
+  
+  def twitter
     #ツイート検索のオプションを記入
     begin
-      @tweets = @client.search("ウマ娘", result_type: "recent", exclude: "retweets").take(5).map do |tweet|
+      @tweets = @client.search("from:@sikra_xs", result_type: "recent", exclude: "retweets").take(5).map do |tweet|
       {
         tweet_link: "https://twitter.com/#{tweet.user.screen_name}/status/#{tweet.id}"
       }
       end
     rescue => exception
+      flash[:notice] = exception
       @tweets = []
     end
     
