@@ -15,5 +15,10 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     get twitter_path
     assert_response :success
   end
+  
+  test "should get twitch" do
+    get twitch_path
+    assert_response :success
+  end
 
 end

@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   
   get 'youtube', to:'comments#youtube'
   get 'twitter', to:'comments#twitter'
+  get 'twitch', to:'comments#twitch'
 end
