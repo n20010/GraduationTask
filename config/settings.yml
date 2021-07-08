@@ -7,3 +7,7 @@ twitter_api:
   
 youtube_api:
   main_key: <%= ENV["YOUTUBE_TOKEN"] %>
+  
+twitch_api:
+  client_id: <%= ENV["TWITCH_ID"] %>
+  client_secret: <%= ENV["TWITCH_SECRET"] %>
