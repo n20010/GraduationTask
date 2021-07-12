@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
   def youtube
     youtube = YoutubeApi.new()
     
-    video_id = 'i4GDpSdIfm8'
+    video_id = 'l7wEC-NC7Wo'
     @comments = youtube.get_comments(video_id)
     
   end
@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
     twitter = TwitterApi.new()
     #ツイート検索のオプションを記入
     begin
-      @tweets = twitter.search("from:@sikra_xs")
+      @tweets = twitter.search("from:@sikra_xs", 5)
     rescue => exception
       flash[:notice] = exception
       @tweets = []
@@ -26,8 +26,8 @@ class CommentsController < ApplicationController
   end
   
   
-  def twitch
-    @twitch = TwitchApi.new()
-  end
+  #def twitch
+  #  @twitch = TwitchApi.new()
+  #end
   
 end

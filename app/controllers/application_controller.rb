@@ -11,8 +11,8 @@ class ApplicationController < ActionController::Base
       end
     end
     
-    def search(keyword)
-      tweets =  @twitter_client.search("#{keyword}", result_type: "recent", exclude: "retweets").take(5).map do |tweet|
+    def search(keyword, quantity)
+      tweets =  @twitter_client.search("#{keyword}", result_type: "recent", exclude: "retweets").take(quantity).map do |tweet|
       {
         tweet_link: "https://twitter.com/#{tweet.user.screen_name}/status/#{tweet.id}"
       }
@@ -22,6 +22,8 @@ class ApplicationController < ActionController::Base
     end
     
   end
+  
+  
   
   class YoutubeApi
       attr_reader :response
@@ -54,23 +56,25 @@ class ApplicationController < ActionController::Base
       end
   end
   
-  class TwitchApi
-    def initialize
-      @twitch_client = Twitch::Client.new(
-        client_id: Settings.twitch_api.client_id,
-        client_secret: Settings.twitch_api.client_secret
-    
-        ## this is default
-        #token_type: :application,
-      
-        ## this can be required by some Twitch end-points
-        # scopes: scopes,
-      
-        ## if you already have one
-        # access_token: access_token
-      )
-    end
-    
-  end
+  
+  
+  #class TwitchApi
+  #  def initialize
+  #    @twitch_client = Twitch::Client.new(
+  #      client_id: Settings.twitch_api.client_id,
+  #      client_secret: Settings.twitch_api.client_secret
+  #  
+  #      ## this is default
+  #      #token_type: :application,
+  #    
+  #      ## this can be required by some Twitch end-points
+  #      # scopes: scopes,
+  #    
+  #      ## if you already have one
+  #      # access_token: access_token
+  #    )
+  #  end
+  #  
+  #end
   
 end
