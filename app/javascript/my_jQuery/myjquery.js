@@ -1,4 +1,12 @@
 $(document).ready(function() {
-  $("h2").text("comments is hacked!");
-  $("h2").fadeOut();
+  
+  $(".btn").hover(
+    function() {
+      $("h2").fadeOut();
+    },
+    
+    function() {
+      $("h2").fadeIn();
+    }
+    )
 });
