@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
   
 
   def index
+    
   end
   
   def youtube
@@ -26,8 +27,13 @@ class CommentsController < ApplicationController
   end
   
   
-  #def twitch
+  def twitch
+    @title = params[:title]
+    respond_to do |format|
+      format.html
+      format.js
+    end
   #  @twitch = TwitchApi.new()
-  #end
+  end
   
 end
