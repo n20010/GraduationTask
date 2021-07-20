@@ -18,12 +18,17 @@ class CommentsController < ApplicationController
     twitter = TwitterApi.new()
     #ツイート検索のオプションを記入
     begin
-      @tweets = twitter.search("from:@sikra_xs", 5)
+      @tweets = twitter.search("ウマ娘", 5)
     rescue => exception
       flash[:notice] = exception
       @tweets = []
     end
     
+    puts @tweets
+    respond_to do |format|
+      format.html
+      format.js { render 'comments/Ajax/twitter.js.erb' }
+    end
   end
   
   
@@ -31,7 +36,7 @@ class CommentsController < ApplicationController
     @title = params[:title]
     respond_to do |format|
       format.html
-      format.js
+      format.js { render 'comments/Ajax/twitch.js.erb'}
     end
   #  @twitch = TwitchApi.new()
   end

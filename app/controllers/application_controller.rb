@@ -12,13 +12,17 @@ class ApplicationController < ActionController::Base
     end
     
     def search(keyword, quantity)
-      tweets =  @twitter_client.search("#{keyword}", result_type: "recent", exclude: "retweets").take(quantity).map do |tweet|
-      {
-        tweet_link: "https://twitter.com/#{tweet.user.screen_name}/status/#{tweet.id}"
-      }
+      tweets =  @twitter_client.search("#{keyword}", result_type: "recent", exclude: "retweets")
+                .take(quantity).map.with_index do |tweet, index|
+        {
+          count: index,
+          name: tweet.user.screen_name,
+          text: tweet.full_text,
+          tweet_link: "https://twitter.com/#{tweet.user.screen_name}/status/#{tweet.id}"
+        }
       end
-      
-      return tweets
+      tweets_hash = (0...tweets.size).zip(tweets).to_h
+      return tweets_hash
     end
     
   end

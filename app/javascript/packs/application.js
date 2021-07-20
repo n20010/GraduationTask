@@ -12,6 +12,7 @@ require("channels")
 // 追記
 require('jquery')
 require('my_jQuery/myjquery.js')
+require('my_jQuery/changetwittercomments.js')
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

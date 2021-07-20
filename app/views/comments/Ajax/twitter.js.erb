@@ -1,0 +1,11 @@
+tweets_json = <%= raw @tweets.to_json %>;
+
+$("#tweets").fadeOut();
+
+setTimeout(function() {
+  $("article").each(function(index, element){
+    $(this).html(tweets_json[index]["text"]);
+  });
+}, 400);
+
+$('#tweets').fadeIn();

@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get  'twitter', to:'comments#twitter'
   get  'twitch',  to:'comments#twitch'
   post 'twitch',  to:'comments#twitch'
+  
 end
