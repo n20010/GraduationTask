@@ -7,11 +7,13 @@ $(document).ready(function(){
   });
   
   function update(){ //この関数では以下のことを行う
+    var latest_tweet_id = $('span').text();
+
     $.ajax({ //ajax通信で以下のことを行う
       url: 'twitter', //urlは現在のページを指定
       type: 'GET', //メソッドを指定
       data: { //railsに引き渡すデータは
-        message: { platform: 'twitter' } //このような形(paramsの形をしています)で、'id'には'message_id'を入れる
+        'latest_tweet_id': latest_tweet_id //このような形(paramsの形をしています)で、'id'には'message_id'を入れる
       },
       dataType: 'script'
     });

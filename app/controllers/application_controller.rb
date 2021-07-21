@@ -11,18 +11,45 @@ class ApplicationController < ActionController::Base
       end
     end
     
-    def search(keyword, quantity)
+    def search(keyword, quantity, before_latest_tweet_id)
+      
+      #====================================================================== 
+      #最新のツイートを取得
       tweets =  @twitter_client.search("#{keyword}", result_type: "recent", exclude: "retweets")
                 .take(quantity).map.with_index do |tweet, index|
         {
-          count: index,
+          id: tweet.id,
           name: tweet.user.screen_name,
           text: tweet.full_text,
           tweet_link: "https://twitter.com/#{tweet.user.screen_name}/status/#{tweet.id}"
         }
       end
-      tweets_hash = (0...tweets.size).zip(tweets).to_h
-      return tweets_hash
+      
+      #====================================================================== 
+      
+      #====================================================================== 
+      #表示済のツイートはViewへ送らない
+      #Don't send to view already displayed
+      new_tweets = []
+      
+      tweets.each do |tweet|
+        if tweet[:id].to_s == before_latest_tweet_id.to_s
+          break
+        else
+          new_tweets.push(tweet)
+        end
+      end
+      
+      #====================================================================== 
+      
+      #====================================================================== 
+      #渡す辞書の要素をindexがキーのハッシュへ変換
+      latest_tweet_id = new_tweets[0][:id].to_s
+      tweets_hash = (0...new_tweets.size).zip(new_tweets).to_h
+      #====================================================================== 
+      
+      
+      return tweets_hash, latest_tweet_id
     end
     
   end

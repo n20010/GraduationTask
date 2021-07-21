@@ -18,13 +18,12 @@ class CommentsController < ApplicationController
     twitter = TwitterApi.new()
     #ツイート検索のオプションを記入
     begin
-      @tweets = twitter.search("ウマ娘", 5)
+      @tweets, @latest_tweet_id = twitter.search("ウマ娘", 5, params[:latest_tweet_id])
     rescue => exception
       flash[:notice] = exception
       @tweets = []
     end
     
-    puts @tweets
     respond_to do |format|
       format.html
       format.js { render 'comments/Ajax/twitter.js.erb' }
