@@ -3,7 +3,7 @@ var latest_tweet_id = '<%= @latest_tweet_id %>'
 
 $("span").html(latest_tweet_id);
 
-regex_reply = /^@.*$/;
+regex_reply = /^@[\s\S]*$/;
 
 Object.keys(tweets_json).reverse().forEach(function(num) {
 
