@@ -3,23 +3,26 @@ var latest_tweet_id = '<%= @latest_tweet_id %>'
 
 $("span").html(latest_tweet_id);
 
-regex_reply = /^@[\s\S]*$/;
+var regex_reply = /^@[\s\S]*$/;
+var line = '='.repeat(60);
+var line_grater = '>'.repeat(25);
+var line_less = '<'.repeat(25);
 
 Object.keys(tweets_json).reverse().forEach(function(num) {
 
   if (!(tweets_json[num]["text"].replace(('\n'), ('\s')).match(regex_reply))) {
     
 
-    $('<div class="line">======================================================</div>').prependTo("ol")
-    .hide().slideDown(300);
+    $('<div class="line">' + line + '<div>').prependTo("ol")
+      .hide().slideDown(300);
     
-    $('<h5 class="tweet-id">' + 'TweetID : ' + tweets_json[num]["id"] + '</h5>').prependTo($("ol")).hide().fadeIn(1500);
+    $('<h5 class="tweet-id">' + 'TweetID : ' + tweets_json[num]["id"] + '</h5>')
+      .prependTo($("ol")).hide().fadeIn(1500);
     
-    $('<article class="tweet">' + 
-        tweets_json[num]["text"].replace(/https.*/g, "[URLメディアあり]") 
+    $('<article class="tweet">' + tweets_json[num]["text"].replace(/https.*/g, "[URLメディアあり]") 
     + '</article>').prependTo($("ol")).hide().fadeIn(1500);
-    
-  
+   
+   
   } else {
     
     console.log("Regex NG");
@@ -31,5 +34,12 @@ Object.keys(tweets_json).reverse().forEach(function(num) {
     
 });
 
-$('<article class="jquery-line"><<<<<<<<<<<<<<<<<<<<<< jQuery Line >>>>>>>>>>>>>>>>>>>>></article><br>')
+
+$('<article class="jquery-line">' + line_less + " jQuery Line " + line_grater + '<article><br>')
   .prependTo("ol").hide().fadeIn(1000);
+  
+  
+$(".btn--reset").click(function() {
+  console.log("true")
+  $("#tweets").empty();
+});
