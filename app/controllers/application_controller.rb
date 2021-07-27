@@ -43,8 +43,13 @@ class ApplicationController < ActionController::Base
       #====================================================================== 
       
       #====================================================================== 
+      if new_tweets == []
+        latest_tweet_id = before_latest_tweet_id.to_s
+      else
+        latest_tweet_id = new_tweets[0][:id].to_s
+      end
+      
       #渡す辞書の要素をindexがキーのハッシュへ変換
-      latest_tweet_id = new_tweets[0][:id].to_s
       tweets_hash = (0...new_tweets.size).zip(new_tweets).to_h
       #====================================================================== 
       
