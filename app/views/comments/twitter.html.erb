@@ -4,7 +4,9 @@
 </div>
 <h2><%= flash[:notice] %></h2>
 <h3>まだjQueryは実行されていません</h3>
-<h4>最新のツイートのIDは<span>0</span>です</h4>
+<h4>検索キーワードは:  <span id="keyword"><%= @keyword %></span> です</h4>
+<h4>最新のツイートのIDは<span id="latest_tweet_id">0</span>です</h4>
+<h4>※ボタン連打対策で即座には実行されません</h4>
 
 
 <ol id="tweets" >
