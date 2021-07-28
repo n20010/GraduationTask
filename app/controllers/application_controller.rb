@@ -43,6 +43,7 @@ class ApplicationController < ActionController::Base
       #====================================================================== 
       
       #====================================================================== 
+      #Viewへ渡す最新のツイートIDを判定
       if new_tweets == []
         latest_tweet_id = before_latest_tweet_id.to_s
       else

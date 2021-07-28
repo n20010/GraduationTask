@@ -3,6 +3,8 @@ $(document).ready(function(){
   var count = 0;
   var tweets;
   
+  
+  
   $("#button").click(function(){
     if ($(this).hasClass("btn--deactive")) {
       
@@ -52,6 +54,8 @@ $(document).ready(function(){
     $('h3').html('まだjQueryは実行されていません');
     count = 0;
     $('span').html(count);
+    console.log("=".repeat(20));
+    console.log("[*]Search function is stopped");
   });
   
   

@@ -16,13 +16,17 @@ class CommentsController < ApplicationController
   
   def twitter
     twitter = TwitterApi.new()
+    
+    @keyword = "プログラミング"
+    
     #ツイート検索のオプションを記入
     begin
-      @tweets, @latest_tweet_id = twitter.search("にじさんじ", 5, params[:latest_tweet_id])
+      @tweets, @latest_tweet_id = twitter.search(@keyword, 5, params[:latest_tweet_id])
     rescue => exception
       flash[:notice] = exception
       @tweets = []
     end
+    
     
     respond_to do |format|
       format.html

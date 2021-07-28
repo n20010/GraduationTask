@@ -1,7 +1,18 @@
+var keyword = '<%= @keyword %>'
+
+if ($("span").html() == 0) {
+  console.log("[*]Search word: " + keyword);
+  console.log("[*]Search function is running");
+  console.log("[*]Send a request every 7 seconds");
+  console.log("=".repeat(20));
+  console.log("v".repeat(20));
+};
+
 var tweets_json = <%= raw @tweets.to_json %>
 var latest_tweet_id = '<%= @latest_tweet_id %>'
 
 $("span").html(latest_tweet_id);
+
 
 var regex_reply = /^@[\s\S]*$/;
 var line = '='.repeat(60);
