@@ -81,6 +81,7 @@ class ApplicationController < ActionController::Base
               )
           
           res_comments = comment_threads.items
+          p res_comments
           comments = res_comments.map do |comment|
             { 
               name: comment.snippet.top_level_comment.snippet.author_display_name,

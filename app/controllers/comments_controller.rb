@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
   def youtube
     youtube = YoutubeApi.new()
     
-    video_id = 'l7wEC-NC7Wo'
+    video_id = 'MRVM6gkWZLc'
     @comments = youtube.get_comments(video_id)
     
   end
