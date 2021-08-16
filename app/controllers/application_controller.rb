@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
       tweets =  @twitter_client.search("#{keyword}", result_type: "recent", exclude: "retweets")
                 .take(quantity).map.with_index do |tweet, index|
         {
+          target: 'Twitter',
           id: tweet.id,
           name: tweet.user.screen_name,
           text: tweet.full_text,
@@ -51,48 +52,48 @@ class ApplicationController < ActionController::Base
       end
       
       #渡す辞書の要素をindexがキーのハッシュへ変換
-      tweets_hash = (0...new_tweets.size).zip(new_tweets).to_h
+      #tweets_hash = (0...new_tweets.size).zip(new_tweets).to_h
       #====================================================================== 
       
       
-      return tweets_hash, latest_tweet_id
+      return new_tweets, latest_tweet_id
     end
     
   end
   
   
   
-  class YoutubeApi
-      attr_reader :response
-  
-      def initialize
-          @youtube = Google::Apis::YoutubeV3::YouTubeService.new
-  
-          @youtube.key = Settings.youtube_api.main_key
-      end
-  
-      def get_comments video_id, page_token = ''
-          comment_threads = @youtube.list_comment_threads(
-              'snippet', # part
-              max_results: 10, # コメント取得件数（1 ~ 100で指定可）
-              order: 'time', # 取得コメントの並び順（time / relevance 形式のいずれかを指定可）
-              text_format: 'plainText', # 出力フォーマット（html / plainText 形式のいずれかを指定可）
-              video_id: video_id
-              )
-          
-          res_comments = comment_threads.items
-          p res_comments
-          comments = res_comments.map do |comment|
-            { 
-              name: comment.snippet.top_level_comment.snippet.author_display_name,
-              comment: comment.snippet.top_level_comment.snippet.text_display
-            }
-            
-          end
-          
-          return comments
-      end
-  end
+ # class YoutubeApi
+ #     attr_reader :response
+ # 
+ #     def initialize
+ #         @youtube = Google::Apis::YoutubeV3::YouTubeService.new
+ # 
+ #         @youtube.key = Settings.youtube_api.main_key
+ #     end
+ # 
+ #     def get_comments video_id, page_token = ''
+ #         comment_threads = @youtube.list_comment_threads(
+ #             'snippet', # part
+ #             max_results: 10, # コメント取得件数（1 ~ 100で指定可）
+ #             order: 'time', # 取得コメントの並び順（time / relevance 形式のいずれかを指定可）
+ #             text_format: 'plainText', # 出力フォーマット（html / plainText 形式のいずれかを指定可）
+ #             video_id: video_id
+ #             )
+ #         
+ #         res_comments = comment_threads.items
+ #         p res_comments
+ #         comments = res_comments.map do |comment|
+ #           { 
+ #             name: comment.snippet.top_level_comment.snippet.author_display_name,
+ #             comment: comment.snippet.top_level_comment.snippet.text_display
+ #           }
+ #           
+ #         end
+ #         
+ #         return comments
+ #     end
+ # end
   
   
   

@@ -1,8 +1,13 @@
+<h1>Comments#Youtube</h1>
+<div class="btn-container">
+<div class="btn btn--orange btn--radius btn--deactive" id="button">Youtubeサーチを始める</div>
+</div>
+<h2><%= flash[:notice] %></h2>
+<h3>まだjQueryは実行されていません</h3>
+<h4>対象ビデオIDは:  <span id="keyword"><%= @video_id %></span> です</h4>
+<h4>NextPageTokenは<span id="nextPageToken">0</span>です</h4>
+<h4>※ボタン連打対策で即座には実行されません</h4>
 
-<div class="hide-btn">コメントを隠す</div>
 
-
-<% @comments.each do |comment| %>
-  <h3><%= comment[:name] %></h3>
-  <h2><%= comment[:comment] %></h2>
-<% end %>
+<ol id="comments" >
+</ol>

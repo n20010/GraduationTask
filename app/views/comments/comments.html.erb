@@ -1,0 +1,19 @@
+<h1>Comments[Twitter]</h1>
+<div class="btn-container">
+<div class="btn btn--orange btn--radius btn--deactive" id="button">サーチを始める</div>
+</div>
+<h2><%= flash[:notice] %></h2>
+<h3>まだjQueryは実行されていません</h3>
+<h4>Twitterの検索キーワードは:  <span id="keyword"><%= @keyword %></span> です</h4>
+<h4>Youtubeの検索IDは:  <span id="video_id"><%= @video_id %></span> です</h4>
+<h4>最新のツイートのIDは<span id="latest_tweet_id">0</span>です</h4>
+<h4>最新のnext_page_tokenは<span id="next_page_token">0</span>です</h4>
+<h4>chat_idは<span id="chat_id"><%= @chat_id %></span>です</h4>
+<h4>※ボタン連打対策で即座には実行されません</h4>
+
+
+<ol id="comments" >
+</ol>
+
+
+<%= javascript_include_tag '//platform.twitter.com/widgets.js', charset: 'utf-8', async: 'async' %>
