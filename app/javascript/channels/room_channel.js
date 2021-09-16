@@ -29,7 +29,6 @@ consumer.subscriptions.create("RoomChannel", {
         var comments_count = Object.keys(comments).length;
         
         const createAnimation = (comment, counter) => {
-          
           const box = document.createElement('span');
           box.innerHTML = comment['text'] ;
           box.classList.add('comment');
