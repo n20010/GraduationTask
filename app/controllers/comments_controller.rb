@@ -5,10 +5,6 @@ class CommentsController < ApplicationController
   
 
   def index
-    
-  end
-  
-  def comments 
     @comments = {} # 全てのコメントはこれに入れてフロントへ送る
     comment_count = 0 # 上記commentsハッシュに入ってるコメントの数
     key = Settings.youtube_api.main_key # API Key
@@ -26,7 +22,8 @@ class CommentsController < ApplicationController
         begin
           # 最新のツイートのみリストで取得
           tweets, @latest_tweet_id = twitter.search(@keyword, 5, params[:latest_tweet_id])
-          comment_count = push_comments(tweets, comment_count)
+          tweets_regexed = twitter.regex(tweets)
+          comment_count = push_comments(tweets_regexed, comment_count)
           
         rescue => exception
           flash[:notice] = exception
@@ -40,7 +37,7 @@ class CommentsController < ApplicationController
       @next_page_token = params[:next_page_token] # 前回取得時のnextPageToken(初回は0)
       if params[:target][:Youtube] == "true"
         chat_id = params[:chat_id]
-        youtube_quantity = 10 # 取得するコメントの数
+        youtube_quantity = 5 # 取得するコメントの数
         # Chat Idを利用してコメント, nextPageTokenを取得
         res_getChat_json, @next_page_token = youtube_get_chat(
           key, youtube_uri_head, chat_id, youtube_quantity, @next_page_token)
@@ -57,13 +54,16 @@ class CommentsController < ApplicationController
       @chat_id = youtube_get_chatId(key, youtube_uri_head, @video_id)
     end
       
+    ActionCable.server.broadcast'room_channel',
+    message:  {:comments => @comments, :styles => false}
+    
     #Ajaxリクエストならjsを返す
     respond_to do |format|
       format.html
-      format.js { render 'comments/Ajax/comments.js.erb' }
+      format.js { render 'comments/Ajax/index.js.erb' }
     end
-  end
   
+  end
   
   def youtube_get_chatId(key, uri_head, video_id)
     uri_detail = 'videos?'
@@ -116,6 +116,12 @@ class CommentsController < ApplicationController
   end
 
 
+  def changeStyles
+    ActionCable.server.broadcast'room_channel',
+    message:  {:comments => false, :styles => JSON.parse(params[:settings])}
+  end
+  
+  
   def twitch
     @title = params[:title]
     respond_to do |format|

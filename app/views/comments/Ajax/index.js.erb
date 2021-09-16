@@ -9,15 +9,12 @@ $("#latest_tweet_id").html(latest_tweet_id);
 $("#next_page_token").html(next_page_token);
 
 
-var regex_reply = /^@[\s\S]*$/;
 var line = '='.repeat(60);
 var line_grater = '>'.repeat(25);
 var line_less = '<'.repeat(25);
 
 Object.keys(comments_json).reverse().forEach(function(num) {
 
-  if (!(comments_json[num]["text"].replace(('\n'), ('\s')).match(regex_reply))) {
-    
 
     $('<div class="line">' + line + '<div>').prependTo("ol")
       .hide().slideDown(300);
@@ -27,21 +24,10 @@ Object.keys(comments_json).reverse().forEach(function(num) {
       .prependTo($("ol")).hide().fadeIn(1500);
     */
     
-    $('<article class="tweet">' + comments_json[num]["text"].replace(/https.*/g, "[URLメディアあり]") 
-    + '</article>').prependTo($("ol")).hide().fadeIn(1500);
+    $('<article class="tweet">' + comments_json[num]["text"] + '</article>')
+    .prependTo($("ol")).hide().fadeIn(1500);
    
-   
-  } else {
-    
-    console.log("Regex NG");
-    console.log(comments_json[num]["text"]);
-    console.log("=".repeat(10));
-  
-  };
-  
-    
-});
-
+  });
 
 $('<article class="jquery-line">' + line_less + " jQuery Line " + line_grater + '<article><br>')
   .prependTo("ol").hide().fadeIn(1000);

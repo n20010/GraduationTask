@@ -1,76 +1,74 @@
-// Place all the styles related to the Comments controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-.jquery-line {
-  margin: 30px;
-  text-align: center;
-  color: #ff0000;
-  font-weight: bold;
-}
-
-h1 {
-  text-align: center;
-}
-
-h3 {
-  text-align: center;
-}
-
-h4 {
-  text-align: center;
-}
-
-h5 {
-  text-align: center;
-}
-
-.line {
-  margin: 10px;
-  text-align: center;
-}
-
-article {
-  text-align: center;
-}
-
-.btn-container {
-  text-align: center;
-}
-
-.btn {
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.5;
-  position: relative;
-  display: inline-block;
-  padding: 0.5rem 2rem;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  text-align: center;
-  vertical-align: middle;
-  text-decoration: none;
-  letter-spacing: 0.1em;
-  color: #212529;
-  border-radius: 0.5rem;
-}
-
-.btn--orange,
-div.btn--orange {
-  color: #fff;
-  background-color: #eb6100;
-}
-.btn--orange:hover,
-div.btn--orange:hover {
-  color: #fff;
-  background: #f56500;
-}
-
-div.btn--radius {
-   border-radius: 100vh;
+#index {
+  .jquery-line {
+    margin: 30px;
+    text-align: center;
+    color: #ff0000;
+    font-weight: bold;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  h3 {
+    text-align: center;
+  }
+  
+  h4 {
+    text-align: center;
+  }
+  
+  h5 {
+    text-align: center;
+  }
+  
+  .line {
+    margin: 10px;
+    text-align: center;
+  }
+  
+  article {
+    text-align: center;
+  }
+  
+  .btn-container {
+    text-align: center;
+  }
+  
+  .btn {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5;
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem 2rem;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    color: #212529;
+    border-radius: 0.5rem;
+  }
+  
+  .btn--orange,
+  div.btn--orange {
+    color: #fff;
+    background-color: #eb6100;
+  }
+  .btn--orange:hover,
+  div.btn--orange:hover {
+    color: #fff;
+    background: #f56500;
+  }
+  
+  div.btn--radius {
+     border-radius: 100vh;
+  }
 }
