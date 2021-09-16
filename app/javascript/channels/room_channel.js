@@ -21,13 +21,13 @@ consumer.subscriptions.create("RoomChannel", {
       const fontSize = document.getElementById('fontSize')
       const animationDuration = document.getElementById('animationDuration')
       
-      
-      // CSS
-     
+      // コメントをレンダーする処理。
+      // Execute this process when data sent from index action
       if (!data["message"]["comments"] == false) {
         var comments = data["message"]["comments"];
         var comments_count = Object.keys(comments).length;
         
+        // Add a comment in span tag to html
         const createAnimation = (comment, counter) => {
           const box = document.createElement('span');
           box.innerHTML = comment['text'] ;
@@ -38,6 +38,8 @@ consumer.subscriptions.create("RoomChannel", {
           screen.appendChild(box);
         };
         
+        // Execute createAnimation function for each comments
+        // This function is also generate a number that need for selecting lane
         try {
           if (comments_count == 0) {
             console.log('[-] undefined comments');
@@ -61,6 +63,8 @@ consumer.subscriptions.create("RoomChannel", {
         }
       } //function Endpoint if message has comments hash
       
+      
+      // Execute this process when data sent from changeStyles action
       if (!data["message"]["styles"] == false) {
         var styles = data["message"]["styles"];
         fontSize.setAttribute('value', styles["fontSize"])
