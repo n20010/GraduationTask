@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     key = Settings.youtube_api.main_key # API Key
     youtube_uri_head = 'https://www.googleapis.com/youtube/v3/'
     
-    @keyword = "ウマ娘"
+    @keyword = "AWS"
     @video_id = '6uddGul0oAc'
     
     if request.xhr? # jQuery(Ajax)からの呼び出しか判定

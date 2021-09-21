@@ -54,7 +54,7 @@ $(document).ready(function(){
         
         count = count + 1;
         $('h3').html('jQueryは' + String(count) + '回実行されました');
-      }, 15000);
+      }, 7000);
       
     }
     
