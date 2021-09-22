@@ -1,56 +1,22 @@
+  <%= render "layouts/header" %>
   <main>
     <div class="top">
-      <div class="sample">Hello World</div>
+      <%= render "layouts/body_partials/top" %>
     </div>
 
     <div class="middle">
-      <div class="box">
-        <p>フォントサイズ</p>
-        <input class="fontSize" type="range" value="30" min="20" max="50" />
-      </div>
-      <div class="box">
-        <p>スピード</p>
-        <input class="speed" type="button" value="遅い" />
-        <input class="speed" type="button" value="普通" />
-        <input class="speed" type="button" value="速い" />
-      </div>
-      <div class="box twitter">
-        <label>
-          <input
-            class="checkTwitter"
-            type="checkbox"
-          />Twiiterのハッシュタグからコメントを取得する
-        </label>
-        <input
-          class="twitterTag"
-          type="text"
-          size="20"
-          placeholder="例:ITカレッジ沖縄"
-        />
-      </div>
-      <div class="box"></div>
-      <div class="box"></div>
-      <div class="box"></div>
+      <%= render "layouts/body_partials/middle" %>
     </div>
     
     <div class="bottom">
-      <input id="button_refresh" class="button" type="button" value="更新" />
+      <%= render "layouts/body_partials/bottom" %>
     </div>
     
     <div class= "n20010">
-      <h1>Comments</h1>
-      <div class="btn-container">
-        <div class="btn btn--orange btn--radius btn--deactive" id="button">サーチを始める</div>
-      </div>
-      <h2><%= flash[:notice] %></h2>
-      <h3>まだjQueryは実行されていません</h3>
-      <h4>Twitterの検索キーワードは:  <span id="keyword"><%= @keyword %></span> です</h4>
-      <h4>Youtubeの検索IDは:  <span id="video_id"><%= @video_id %></span> です</h4>
-      <h4>最新のツイートのIDは<span id="latest_tweet_id">0</span>です</h4>
-      <h4>最新のnext_page_tokenは<span id="next_page_token">0</span>です</h4>
-      <h4>chat_idは<span id="chat_id"><%= @chat_id %></span>です</h4>
-      <h4>※ボタン連打対策で即座には実行されません</h4>
-      
+      <div id="video_id" value=<%=@video_id %>></div>
+      <div id="latest_tweet_id" value=0></div>
+      <div id="next_page_token" value=0></div>
+      <div id="chat_id" value="<%= @chat_id %>"></div>
       <ol id="comments" ></ol>
       
       <%= javascript_include_tag '//platform.twitter.com/widgets.js', charset: 'utf-8', async: 'async' %>

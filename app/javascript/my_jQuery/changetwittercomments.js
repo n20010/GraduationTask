@@ -5,14 +5,13 @@ $(document).ready(function(){
   if (location.pathname == "/") {
     console.log('[*] loaded Main jQuery');
     var count = 0;
-    var tweets;
+    var comments;
     
     $("#button").click(function(){
       if ($(this).hasClass("btn--deactive")) {
         
-        console.log("[*] Search word: " + $("#keyword").html());
         console.log("[*] Search function is running");
-        console.log("[*] Send 10 request every 15 seconds");
+        console.log("[*] Send 10 request every 7 seconds");
         
         $(this).removeClass("btn--deactive");
         $(this).addClass("btn--active");
@@ -25,17 +24,19 @@ $(document).ready(function(){
         $(this).addClass("btn--deactive");
         $(this).html("サーチを始める");
         stop_update();
-        $('<div class="btn btn--orange btn--radius btn--reset">Clear</div>')
-          .appendTo(".btn-container").hide().fadeIn(500);
+        $('<div class="btn btn--reset btn-dark">Clear</div>')
+          .appendTo(".bottom-btn-container").hide().fadeIn(500);
         
       }
     });
   
     function update(){ //この関数では以下のことを行う
-      tweets = setInterval(function() {
-        var latest_tweet_id = $('#latest_tweet_id').text();
-        var next_page_token = $('#next_page_token').text();
+      comments = setInterval(function() {
+        var latest_tweet_id = $('#latest_tweet_id').val();
+        var next_page_token = $('#next_page_token').val();
         var chat_id         = $('#chat_id').text();
+        
+        $('.btn--reset').remove()
     
         $.ajax({ //ajax通信
           url: '/', //urlは現在のページを指定
@@ -53,13 +54,12 @@ $(document).ready(function(){
         });
         
         count = count + 1;
-        $('h3').html('jQueryは' + String(count) + '回実行されました');
       }, 7000);
       
     }
     
     function stop_update(){
-      clearInterval(tweets);
+      clearInterval(comments);
       console.log("=".repeat(20));
       console.log("[-] Search function is stopped");
     }
@@ -67,10 +67,9 @@ $(document).ready(function(){
     $("body").on("click", ".btn--reset", function() {
       $("#comments").fadeOut().empty().fadeIn();
       $(this).remove();
-      $('h3').html('まだjQueryは実行されていません');
       count = 0;
-      $('#latest_tweet_id').html(count);
-      $('#next_page_token').html(count);
+      $('#latest_tweet_id').val(count);
+      $('#next_page_token').val(count);
       console.log("[-] Every Numerics were reset");
     });
     
