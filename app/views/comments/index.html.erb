@@ -1,24 +1,37 @@
+<header id="header">
   <%= render "layouts/header" %>
-  <main>
+</header>
+
+<div id="main">
+
+  <div class="wrapper">
+  <article id="content">
     <div class="top">
       <%= render "layouts/body_partials/top" %>
     </div>
-
+  
     <div class="middle">
       <%= render "layouts/body_partials/middle" %>
     </div>
-    
+  
     <div class="bottom">
       <%= render "layouts/body_partials/bottom" %>
     </div>
+  </article>
     
-    <div class= "n20010">
-      <div id="video_id" value=<%=@video_id %>></div>
-      <div id="latest_tweet_id" value=0></div>
-      <div id="next_page_token" value=0></div>
-      <div id="chat_id" value="<%= @chat_id %>"></div>
-      <ol id="comments" ></ol>
-      
-      <%= javascript_include_tag '//platform.twitter.com/widgets.js', charset: 'utf-8', async: 'async' %>
-    </div>
-  </main>
+  <aside id="sidebar">
+    <%= render 'layouts/body_partials/sidebar' %>
+  </aside>
+
+</div>
+</div>
+
+<div class= "n20010">
+  <div id="video_id" value=<%=@video_id %>></div>
+  <div id="latest_tweet_id" value=0></div>
+  <div id="next_page_token" value=0></div>
+  <div id="chat_id" value="<%= @chat_id %>"></div>
+  <!--<ol id="comments" ></ol>-->
+</div>
+<footer id="footer">Footer</footer>
+  

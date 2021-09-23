@@ -34,7 +34,7 @@ $(document).ready( function() {
     フォントサイズ
     */
     
-    $(".fontSize").on("input", function(){
+    $(".form-range").on("input", function(){
       $(".sample").css('fontSize', `${$(this).val()}px`);
       fontSize = $(this).val();
     });
