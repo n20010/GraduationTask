@@ -37,6 +37,12 @@
     height: 1080px;
   }
   
+  #footer {
+    clear: both;
+    background: #F0C0C0;
+    height: 300px;
+  }
+  
   .wrapper {
     height: 100%;
     min-width: 800px;
@@ -57,12 +63,6 @@
     overflow: hidden;
   }
 
-  #footer {
-    clear: both;
-    background: #F0C0C0;
-    height: 300px;
-  }
-  
   // Advance CSS
   
   //Header CSS
@@ -220,11 +220,35 @@
   
   
   //footer CSS
-  #footer-content {
-    height: 50%;
+  .footer-wrapper {
+    margin: 0px auto;
+  }
+  
+  .footer-content {
+    height: 100%;
     max-width: 1140px;
     margin-left: auto;
     margin-right: auto;
+  }
+  
+  .box-footer {
+    padding: 10px 30px 10px 30px;
+    width: 80%;
+    height: 100%;
+  }
+  
+  #footer-last {
+    margin-top: 10px;
+    height: 20px;
+    background-color: #220000;
+  }
+  
+  #copyright {
+    float: right;
+    padding-right: 10px;
+    font-size: 4px;
+    color: #fff;
+    height: 100%;
   }
   
   //responsive CSS
