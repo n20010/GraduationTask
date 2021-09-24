@@ -20,8 +20,8 @@
   #footer {
     border: red 5px solid;
   }
-  
   */
+  
   // Basic CSS
   #header{
     width: 100%;
@@ -123,8 +123,18 @@
    //margin: auto;
   }
   
+  // sidebar CSS
   .sidebar-content {
-    padding: 20px 0;
+    padding: 0;
+  }
+  
+  #sidebar-carousel {
+    height: 20%;
+  }
+  
+  #sidebar-cards {
+    height: 80%;
+    padding-bottom: 10%;
   }
   
   .carousel-img {
@@ -137,18 +147,13 @@
     border-radius: 5px;
   }
   
-  #integration_repo {
-    margin-bottom: 24px;
+  object {
+    border-left: #C0C0C0 1px solid;
   }
   
-  object {
-    width: 100%;
-    margin-top: 5%;
-    margin-left: 5%;
-    margin-right: 5%;
-  }
   #cards {
     overflow-y: scroll;
+    height: 100%;
   }
   
   .bottom {
