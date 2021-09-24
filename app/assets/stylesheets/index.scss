@@ -65,6 +65,7 @@
   
   // Advance CSS
   
+  //Header CSS
   #app-name {
     margin-right: 30px;
     margin-left: 30px;
@@ -87,6 +88,7 @@
     margin-left: auto;
   }
   
+  // Top CSS
   .top {
     width: 100%;
     height: 30%;
@@ -108,6 +110,7 @@
     margin: auto;
   }
   
+  //Middle CSS
   .middle {
     width: 100%;
     height: 50%;
@@ -135,6 +138,26 @@
   .form-floating {
     margin-bottom: 0!important;
     padding-bottom: 1rem!important;
+  }
+  
+  //Middle settings CSS
+  .index-label{
+    margin-left: 5%;
+    color: #3366FF;
+  }
+  
+  
+  .fontSize {
+    width: 47%;
+  }
+  
+  .form-range {
+    width: 100%;
+  }
+  
+  
+  .speed {
+    width: 47%;
   }
   
   // sidebar CSS
@@ -170,6 +193,7 @@
     height: 100%;
   }
   
+  //Bottom CSS
   .bottom {
     width: 100%;
     height: 10%;
@@ -190,27 +214,8 @@
     width: 40%;
   }
   
-  
-  .fontSize {
-    width: 47%;
-  }
-  
-  .form-range {
-    width: 100%;
-  }
-  
-  
-  .speed {
-    width: 47%;
-  }
-  
   .btn-container {
        display: flex;
-  }
-  
-  .index-label{
-    margin-left: 5%;
-    color: #3366FF;
   }
   
   
