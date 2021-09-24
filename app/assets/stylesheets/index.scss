@@ -39,7 +39,7 @@
   
   #footer {
     clear: both;
-    background: #F0C0C0;
+    background: #C0C0C0;
     height: 300px;
   }
   
@@ -222,6 +222,7 @@
   //footer CSS
   .footer-wrapper {
     margin: 0px auto;
+    height: 95%;
   }
   
   .footer-content {
@@ -232,22 +233,28 @@
   }
   
   .box-footer {
-    padding: 10px 30px 10px 30px;
     width: 80%;
     height: 100%;
   }
   
+  .box-footer-left {
+    padding: 10px 0px 10px 30px;
+  }
+  
+  .box-footer-right {
+    padding: 10px 30px 10px 0px;
+  }
+  
   #footer-last {
-    margin-top: 10px;
-    height: 20px;
-    background-color: #220000;
+    background-color: #C0C0C0;
+    padding-bottom: 5px;
   }
   
   #copyright {
-    float: right;
-    padding-right: 10px;
-    font-size: 4px;
-    color: #fff;
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: right;
     height: 100%;
   }
   
