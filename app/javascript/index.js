@@ -45,6 +45,7 @@ $(document).ready( function() {
     
     $(".speed").on("click", function(){
       valueSpeed($(this).val());
+      $('.sample').css('animation-duration', String(fontSpeed) + 's');
     });
     
     const valueSpeed = value => {
@@ -58,8 +59,6 @@ $(document).ready( function() {
         case '速い':
           fontSpeed = 30;
           break;
-        default:
-          fontSpeed = 50;
       }
     };
     
@@ -79,5 +78,26 @@ $(document).ready( function() {
       tag = $(this).val();
     });
     
+    const createAnimation = () => {
+      const box = document.createElement('span');
+      var generateSpanClass = 'sample' + String(span_count)
+      box.innerHTML = "HELLO WORLD";
+      box.classList.add('sample');
+      box.classList.add(generateSpanClass)
+      box.style.fontSize = String(fontSize) + 'px';
+      box.style.animationDuration = String(fontSpeed) + 's';
+      screen.appendChild(box);
+      setTimeout(function(){
+        $('.' + generateSpanClass).remove()
+      }, 9999);
+    };
+    
+    const screen = document.querySelector('.div-top');
+    var span_count = 0
+    createAnimation()
+    const sampleAnimation = setInterval(function() {
+      createAnimation()
+      span_count++;
+    }, 10000)
   }
 })
