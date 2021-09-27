@@ -89,7 +89,7 @@ $(document).ready( function() {
       screen.appendChild(box);
       setTimeout(function(){
         $('.' + generateSpanClass).remove()
-      }, 9999);
+      }, 10000);
     };
     
     const screen = document.querySelector('.div-top');
@@ -98,6 +98,6 @@ $(document).ready( function() {
     const sampleAnimation = setInterval(function() {
       createAnimation()
       span_count++;
-    }, 10000)
+    }, 4000)
   }
 })

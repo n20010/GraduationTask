@@ -104,6 +104,7 @@
     background: #C0C0C0;
     margin: auto;
     display: flex;
+    overflow: hidden;
   }
   .sample {
     font-size: 30px;
@@ -130,23 +131,8 @@
   @keyframes lane {
     0% {
       transform: translate(100vw, 0px);
-      opacity: 0;
     }
     
-    14.5% {
-      opacity: 0;
-    }
-    
-    14.8% {
-      opacity: 1;
-    }
-    
-    18.5% {
-      opacity: 1;
-    }
-    18.8% {
-      opacity: 0;
-    }
     100% {
       transform: translate(-500vw, 0px);
     }
