@@ -1,17 +1,49 @@
 <div class="footer-content">
   <div class="wrapper footer-wrapper">
-    <div class="box box-footer box-footer-left">
-      <label for="development-repo"><h3>Development Info</h3></label>
-      <object id="dedvelopment-repo" type="image/svg+xml" data="https://gh-card.dev/repos/n20006/GraduationTask_Team.svg?link_target=_blank"></object>
-    </div>
     <div class="box box-footer box-footer-right">
       <h3>Contents</h3>
       <ul class="">
-        <li class="">An item</li>
-        <li class="">A second item</li>
-        <li class="">A third item</li>
-        <li class="">A fourth item</li>
-        <li class="">And a fifth one</li>
+        <li class="footer-links">
+          <%= link_to "HOME", root_path %>
+        </li>
+        <li class="footer-links">
+          <%= link_to "SCREEN", screen_path, target: "_blank", rel: "noopener noreferrer" %>
+        </li>
+        <li class="footer-links">
+          <%= link_to "USAGE", root_path  %>
+        </li>
+        <li class="footer-links">
+          <%= link_to "HOGE", root_path %>
+        </li>
+        <li class="footer-links">
+          <%= link_to "HOGE", root_path %>
+        </li>
+        <li class="footer-links">
+          <%= link_to "HOGE", root_path %>
+        </li>
+      </ul>
+    </div>
+    <div class="box box-footer box-footer-right">
+      <h3>Other Sites</h3>
+      <ul class="">
+        <li class="footer-links">
+          <%= link_to "Develop Repository", 'https://github.com/n20006/GraduationTask_Team', target: "_blank", rel: "nopener noreferrer" %>
+        </li>
+        <li class="footer-links">
+          <%= link_to "Developper Github ", 'https://github.com/n20010', target: "_blank", rel: "nopener noreferrer" %>
+        </li>
+        <li class="footer-links">
+          <%= link_to "Twitter API Reference", 'https://developer.twitter.com/en/docs/api-reference-index', target: "_blank", rel: "nopener noreferrer" %>
+        </li>
+        <li class="footer-links">
+          <%= link_to "Youtube API Reference", 'https://developers.google.com/youtube/v3/docs?hl=ja', target: "_blank", rel: "nopener noreferrer" %>
+        </li>
+        <li class="footer-links">
+          <%= link_to "Amazon Web Service", 'https://aws.amazon.com/jp/', target: "_blank", rel: "nopener noreferrer" %>
+        </li>
+        <li class="footer-links">
+          <%= link_to "Ruby on Rails Official", 'https://rubyonrails.org/', target: "_blank", rel: "nopener noreferrer" %>
+        </li>
       </ul>
     </div>
   </div>

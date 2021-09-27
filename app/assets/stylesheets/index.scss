@@ -232,6 +232,11 @@
     margin-right: auto;
   }
   
+  .footer-links {
+    font-size: 20px;
+    list-style: none;
+  }
+  
   .box-footer {
     width: 80%;
     height: 100%;
@@ -300,7 +305,6 @@
     }
     
     .box {
-      width: 90%;
       margin: 10px auto;
     }
     
@@ -315,7 +319,7 @@
     
     // footer CSS
     #footer {
-      height: 500px;
+      height: 250px;
     }
     
     .box-footer {
