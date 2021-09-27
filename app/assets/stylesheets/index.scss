@@ -126,15 +126,12 @@
     animation-fill-mode: forwards;
     animation-duration: 50s;
     animation-name: lane;
+    transform: translateX(700px);
   }
   
   @keyframes lane {
-    0% {
-      transform: translate(100vw, 0px);
-    }
-    
     100% {
-      transform: translate(-500vw, 0px);
+      transform: translateX(-6500px);
     }
   }
   
