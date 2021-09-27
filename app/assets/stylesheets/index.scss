@@ -92,7 +92,7 @@
   .top {
     width: 100%;
     height: 30%;
-    margin-bottom: 50px;
+    padding-bottom: 50px;
     position: relative;
   }
   
@@ -113,7 +113,7 @@
   //Middle CSS
   .middle {
     width: 100%;
-    height: 50%;
+    height: 60%;
     align-items: center;
   }
   .middle-wrapper {
@@ -262,13 +262,14 @@
   //for chrome
   @media screen and (max-width: 1220px){
     #header {
-      position: fixed;
+      //position: fixed;
       top: 0;
       z-index: 10;
     }
     
     #main {
       margin: 50px 0;
+      height: 1300px;
     }
     .wrapper {
       overflow: hidden;
@@ -279,6 +280,17 @@
     
     #content {
       width: 100%;
+    }
+    
+    .box-form {
+      height: 50%;
+    }
+    .middle-wrapper {
+      width: 100%;
+      height: 50%;
+      align-items: center;
+      margin: 0px;
+      text-align: center;
     }
     
     #sidebar {
@@ -293,12 +305,21 @@
     }
     
     .fontSize {
-      width: 90%;
+      width: 100%;
     }
     .speed {
-      width: 90%;
+      width: 100%;
     }
     .carousel-img {
+    }
+    
+    // footer CSS
+    #footer {
+      height: 500px;
+    }
+    
+    .box-footer {
+      height: 50%;
     }
   }
 
