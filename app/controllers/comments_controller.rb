@@ -7,14 +7,8 @@ class CommentsController < ApplicationController
   def index
     @comments = {} # 全てのコメントはこれに入れてフロントへ送る
     comment_count = 0 # 上記commentsハッシュに入ってるコメントの数
-    key = Settings.youtube_api.main_key # API Key
-    youtube_uri_head = 'https://www.googleapis.com/youtube/v3/'
     
     @keyword = params[:twitter_keyword]
-    youtube_url = params[:youtube_url]
-    video_id = youtube_url.match(/https:.+v=(.+)$/)[1]
-    
-    @video_id = video_id
     
     if request.xhr? # jQuery(Ajax)からの呼び出しか判定
       
@@ -39,11 +33,20 @@ class CommentsController < ApplicationController
       # Youtube ===================================================================================
       @next_page_token = params[:next_page_token] # 前回取得時のnextPageToken(初回は0)
       if params[:target][:Youtube] == "true"
-        chat_id = params[:chat_id]
+        key = Settings.youtube_api.main_key # API Key
+        youtube_uri_head = 'https://www.googleapis.com/youtube/v3/'
+        youtube_url = params[:youtube_url]
+        video_id = youtube_url.match(/https:.+v=(.+)$/)[1]
+        @video_id = video_id
+        @chat_id = params[:chat_id]
+        if @chat_id = 0
+          @chat_id = youtube_get_chatId(key, youtube_uri_head, @video_id)
+        end
         youtube_quantity = 5 # 取得するコメントの数
+        
         # Chat Idを利用してコメント, nextPageTokenを取得
         res_getChat_json, @next_page_token = youtube_get_chat(
-          key, youtube_uri_head, chat_id, youtube_quantity, @next_page_token)
+          key, youtube_uri_head, @chat_id, youtube_quantity, @next_page_token)
         
         if res_getChat_json["items"] != []
           res_getChat_list_standard = youtube_fix_comments_list_standard(res_getChat_json)
@@ -54,7 +57,6 @@ class CommentsController < ApplicationController
       
     else # Ajaxリクエストじゃなかった場合
       # Chat Idを取得
-      @chat_id = youtube_get_chatId(key, youtube_uri_head, @video_id)
     end
       
     ActionCable.server.broadcast'room_channel',
