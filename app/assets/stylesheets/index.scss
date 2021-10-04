@@ -106,6 +106,7 @@
     display: flex;
     overflow: hidden;
   }
+  
   .sample {
     font-size: 30px;
     margin: auto;
@@ -113,13 +114,13 @@
     font-weight: bolder;
     text-shadow: black 0 0 5px;
   
-    /* 改行しない */
+    // 改行しない 
     white-space: nowrap;
   
-    /* ポジションを固定する */
+    // ポジションを固定する
     //position: absolute;
   
-    /* 文字の行間を調節する */
+    // 文字の行間を調節する
     line-height: 1;
   
     animation-timing-function: linear;
@@ -128,6 +129,7 @@
     animation-name: lane;
     transform: translateX(700px);
   }
+  
   
   @keyframes lane {
     100% {
