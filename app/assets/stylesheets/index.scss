@@ -39,9 +39,15 @@
   
   #footer {
     clear: both;
-    background: #C0C0C0;
+    color: #a0a0a0;
+    background: #F0F0F0;
     height: 300px;
   }
+  
+  a {
+    text-decoration: none;
+  }
+  
   
   .wrapper {
     height: 100%;
@@ -252,6 +258,12 @@
     height: 95%;
   }
   
+  .footer-title {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: #a0a0a0 3px solid;
+  }
+  
   .footer-content {
     height: 100%;
     max-width: 1140px;
@@ -260,6 +272,14 @@
   }
   
   .footer-links {
+    a {
+      color: inherit;
+    }
+    a:hover {
+      transform: scale(1.5, 1.5);
+      color: #220000;
+      font-weight: bold;
+    }
     font-size: 20px;
     list-style: none;
   }
@@ -278,7 +298,7 @@
   }
   
   #footer-last {
-    background-color: #C0C0C0;
+    background-color: #F0F0F0;
     padding-bottom: 5px;
   }
   
