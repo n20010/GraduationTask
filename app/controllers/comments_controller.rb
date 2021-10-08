@@ -4,6 +4,10 @@ class CommentsController < ApplicationController
   require 'pp'
   
 
+  def usage
+  end
+  
+  
   def index
     @comments = {} # 全てのコメントはこれに入れてフロントへ送る
     comment_count = 0 # 上記commentsハッシュに入ってるコメントの数

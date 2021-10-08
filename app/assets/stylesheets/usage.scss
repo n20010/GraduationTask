@@ -1,0 +1,236 @@
+#usage {
+  * {
+    box-sizing: border-box;
+  }
+  
+  //add lines
+  /*
+  #content {
+    border: red 5px solid;  
+  }
+  
+  #main {
+    border: blue 5px solid;
+  }
+  
+  #sidebar {
+    border: yellow 5px solid;
+  }
+  
+  #footer {
+    border: red 5px solid;
+  }
+  */
+  
+  // Basic CSS
+  #header{
+    width: 100%;
+    height: 80px;
+    background-color: #220000;
+  }
+  
+  #main {
+    max-width: 1140px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 1080px;
+  }
+  
+  #footer {
+    clear: both;
+    color: #a0a0a0;
+    background: #F0F0F0;
+    height: 300px;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  
+  .wrapper {
+    height: 100%;
+    min-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0px auto;
+  }
+  
+  #content {
+    height: 100%;
+    width: 73%;
+  }
+  
+  #sidebar {
+    height: 100%;
+    width: 25%;
+    overflow: hidden;
+  }
+
+  // Advance CSS
+  
+  //Header CSS
+  #app-name {
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+  
+  .navbar {
+    height: 100%;
+  }
+  
+  .navbar-margin {
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .header-nav-item {
+    margin-right: 20px;
+  }
+  
+  #header-left-navs {
+    margin-left: auto;
+  }
+  
+  // sidebar CSS
+  .sidebar-content {
+    padding: 0;
+  }
+  
+  #sidebar-carousel {
+    height: 20%;
+  }
+  
+  #sidebar-cards {
+    height: 80%;
+    padding-bottom: 10%;
+  }
+  
+  .carousel-img {
+    height: 180px;
+  }
+  
+  .add-border {
+    border: black 5px solid;
+    margin-bottom: 25px;
+    border-radius: 5px;
+  }
+  
+  object {
+    border-left: #C0C0C0 1px solid;
+  }
+  
+  #cards {
+    overflow-y: scroll;
+    height: 100%;
+  }
+  
+  //footer CSS
+  .footer-wrapper {
+    margin: 0px auto;
+    height: 95%;
+  }
+  
+  .footer-title {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: #a0a0a0 3px solid;
+  }
+  
+  .footer-content {
+    height: 100%;
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .footer-links {
+    a {
+      color: inherit;
+    }
+    a:hover {
+      transform: scale(1.5, 1.5);
+      color: #220000;
+      font-weight: bold;
+    }
+    font-size: 20px;
+    list-style: none;
+  }
+  
+  .box-footer {
+    width: 80%;
+    height: 100%;
+  }
+  
+  .box-footer-left {
+    padding: 10px 0px 10px 30px;
+  }
+  
+  .box-footer-right {
+    padding: 10px 30px 10px 0px;
+  }
+  
+  #footer-last {
+    background-color: #F0F0F0;
+    padding-bottom: 5px;
+  }
+  
+  #copyright {
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: right;
+    height: 100%;
+  }
+  
+  //responsive CSS
+  //for chrome
+  @media screen and (max-width: 1220px){
+    #header {
+      //position: fixed;
+      top: 0;
+      z-index: 10;
+    }
+    
+    #main {
+      margin: 50px 0;
+      height: 1300px;
+    }
+    .wrapper {
+      overflow: hidden;
+      width: 90%;
+      float: none;
+      display: block;
+    } 
+    
+    #content {
+      width: 100%;
+    }
+    
+    #sidebar {
+      display: none;
+      margin-top: 10px;
+      width: 100%;
+    }
+    
+    
+    .carousel-img {
+    }
+    
+    // footer CSS
+    #footer {
+      //height: 550px;
+    }
+    .footer-wrapper {
+      display: flex;
+      
+    }
+    
+    .box-footer {
+      height: 50%;
+    }
+  }
+
+}
