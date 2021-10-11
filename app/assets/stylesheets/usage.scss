@@ -13,6 +13,10 @@
     border: blue 5px solid;
   }
   
+  .details {
+    border: red 5px solid;
+  } 
+  
   #sidebar {
     border: yellow 5px solid;
   }
@@ -92,6 +96,12 @@
   
   #header-left-navs {
     margin-left: auto;
+  }
+  
+  //contents CSS
+  
+  .details {
+    margin: 20px auto;
   }
   
   // sidebar CSS
