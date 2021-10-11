@@ -13,7 +13,7 @@
     border: blue 5px solid;
   }
   
-  .details {
+  .section {
     border: red 5px solid;
   } 
   
@@ -100,8 +100,22 @@
   
   //contents CSS
   
-  .details {
-    margin: 20px auto;
+  .section {
+    margin: 20px 0px 20px 20px;
+  }
+  
+  .section-main {
+    padding-bottom: 10px;
+    border-bottom: #a0a0a0 2px solid;
+  }
+  
+  .detail {
+    margin-left: 20px;
+  }
+  
+  .detail-p {
+    color: #220000;
+    font-weight: bold;
   }
   
   // sidebar CSS
