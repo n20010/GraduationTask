@@ -1,12 +1,14 @@
 var comments_json = <%= raw @comments.to_json %>
 var latest_tweet_id = '<%= @latest_tweet_id %>'
 var next_page_token = '<%= @next_page_token %>'
+var video_id = '<%= @video_id %>'
+var chat_id = '<%= @chat_id %>'
 
 
-$("#keyword").html('<%= @keyword %>');
-$("#video_id").html('<%= @video_id %>');
-$("#latest_tweet_id").html(latest_tweet_id);
-$("#next_page_token").html(next_page_token);
+$("#chat_id").val(chat_id);
+$("#video_id").val(video_id);
+$("#latest_tweet_id").val(latest_tweet_id);
+$("#next_page_token").val(next_page_token);
 
 
 var line = '='.repeat(60);
