@@ -1,4 +1,4 @@
-<div class="wrapper middle-wrapper">
+<div class="middle-wrapper">
   
   <div class="box fontSize">
     <nav class="navbar navbar-light bg-light">
@@ -9,19 +9,34 @@
     </nav>
   </div>
   
-  <div class="box speed">
-    <nav class="navbar navbar-light bg-light">
-      <h3 class="index-label">SPEED</h3>
-      <form class="container-fluid justify-content-start" style="display:block" >
-        <div class="btn-container">
-          <button class="btn btn-outline-success me-2 speed" type="button" value="遅い">SLOWLY</button>
-          <button class="btn btn-outline-success me-2 speed" type="button" value="普通">DEFAULT</button>
-          <button class="btn btn-outline-success me-2 speed" type="button" value="速い">FASTER</button>
-        </div>
-      </form>
-    </nav>
+  <div class='wrapper'>
+    <div class="box fontSize">
+      <nav class="navbar navbar-light bg-light">
+        <h3 class="index-label">TRANSPARENCY</h3>
+        <form class="container-fluid justify-content-start" style="display:block" >
+          <input type="range" class="form-range" min="0.2" max="1" step="0.1" id="customRange3"> 
+        </form>
+      </nav>
+    </div>
+    
+    <div class="box speed">
+      <nav class="navbar navbar-light bg-light">
+        <h3 class="index-label">SPEED</h3>
+        <form class="container-fluid justify-content-start" style="display:block" >
+          <div class="btn-container">
+            <button class="btn btn-outline-success me-2 speed" type="button" value="遅い">SLOWLY</button>
+            <button class="btn btn-outline-success me-2 speed" type="button" value="普通">DEFAULT</button>
+            <button class="btn btn-outline-success me-2 speed" type="button" value="速い">FASTER</button>
+          </div>
+        </form>
+      </nav>
+    </div>
   </div>
   
+</div>
+
+<div class='box-form'>
+  <%= render "layouts/body_partials/koya" %>
 </div>
   
   <div class="box-form twitter">
