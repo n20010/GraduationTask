@@ -118,7 +118,7 @@ class CommentsController < ApplicationController
   
   def push_comments(comments_list, comment_count)
     for item in comments_list do
-      @comments[comment_count] = item 
+      @comments[comment_count] = item
       comment_count += 1
     end
     return comment_count
@@ -128,16 +128,6 @@ class CommentsController < ApplicationController
   def changeStyles
     ActionCable.server.broadcast'room_channel',
     message:  {:comments => false, :styles => JSON.parse(params[:settings])}
-  end
-  
-  
-  def twitch
-    @title = params[:title]
-    respond_to do |format|
-      format.html
-      format.js { render 'comments/Ajax/twitch.js.erb'}
-    end
-  #  @twitch = TwitchApi.new()
   end
   
 end

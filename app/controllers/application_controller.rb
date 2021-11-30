@@ -66,7 +66,7 @@ class ApplicationController < ActionController::Base
         .gsub(/https.*/, "[URLメディアあり]")
         
         if !(text_regexed.match(/^@[\s\S]*$/))
-          tweets_regexed.push({text: text_regexed})
+          tweets_regexed.push({target: "Twitter", text: text_regexed})
         end
       end
       

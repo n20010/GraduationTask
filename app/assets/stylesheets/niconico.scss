@@ -1,0 +1,25 @@
+#screen {
+  :root {
+    --translateX: -1000px;
+  }
+  
+  .niconico {
+    /* ポジションを固定する */
+    position: fixed;
+  
+    /* 改行しない */
+    white-space: nowrap;
+  
+    text-shadow: black 0 0 3px;
+  }
+  
+  .animation {
+    animation: 10s linear 0s 1 forwards lane;
+  }
+  
+  @keyframes lane {
+    100% {
+      transform: translateX(var(--translateX));
+    }
+  }
+}

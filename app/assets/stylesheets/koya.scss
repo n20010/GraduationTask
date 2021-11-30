@@ -20,12 +20,12 @@
   }
   
   .radio[value='niconico'] + label:after {
-    background-image: url("<%= asset_path('koya/niconico.png') %>");
+    background-image: url("/images/niconico.png");
     border-radius: 100%;
   }
   
   .radio[value='youtube'] + label:after {
-    background-image: url("<%= asset_path('koya/youtube.png') %>");
+    background-image: url("/images/youtube.png");
     border-radius: 100%;
   }
   

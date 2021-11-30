@@ -1,25 +1,4 @@
 #screen {
-  * {
-    margin: 0;
-  }
-  
-  html,
-  body {
-    width: 100%;
-    height: 100%;
-  }
-  
-  body::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .screen {
-    width: 100%;
-    height: 100%;
-    //overflow: hidden; コメントが消えるため削除
-    position: relative;
-  }
-  
   .comment {
     color: white;
     /* font-size: 50px; */
@@ -34,95 +13,57 @@
   
     /* 文字の行間を調節する */
     line-height: 1;
-  
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
   }
   
-  /* @keyframesは、アニメーション開始から終了するまでのアニメーションを指定する */
-  @keyframes lane0 {
-    0% {
-      transform: translate(100vw, 0px);
-    }
-    100% {
-      transform: translate(-500vw, 0px);
-    }
+  /* 全体に適用 */
+  * {
+    margin: 0;
+    box-sizing: border-box;
   }
   
-  @keyframes lane1 {
-    0% {
-      transform: translate(100vw, 70px);
-    }
-    100% {
-      transform: translate(-500vw, 70px);
-    }
+  html,
+  body {
+    width: 100%;
+    height: 100%;
   }
   
-  @keyframes lane2 {
-    0% {
-      transform: translate(100vw, 140px);
-    }
-    100% {
-      transform: translate(-500vw, 140px);
-    }
+  /* スクロールバーを非表示にする */
+  body::-webkit-scrollbar {
+    display: none;
   }
   
-  @keyframes lane3 {
-    0% {
-      transform: translate(100vw, 210px);
-    }
-    100% {
-      transform: translate(-500vw, 210px);
-    }
+  /* コメントを表示するスクリーン */
+  .screen {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
   }
   
-  @keyframes lane4 {
-    0% {
-      transform: translate(100vw, 280px);
-    }
-    100% {
-      transform: translate(-500vw, 280px);
-    }
+  .twitterIcon::before {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    margin-right: 5px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('/images/twitter.png');
   }
   
-  @keyframes lane5 {
-    0% {
-      transform: translate(100vw, 350px);
-    }
-    100% {
-      transform: translate(-500vw, 350px);
-    }
+  .youtubeIcon::before {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    margin-right: 5px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('/images/youtube.png');
   }
-  @keyframes lane6 {
-    0% {
-      transform: translate(100vw, 420px);
-    }
-    100% {
-      transform: translate(-500vw, 420px);
-    }
-  }
-  @keyframes lane7 {
-    0% {
-      transform: translate(100vw, 490px);
-    }
-    100% {
-      transform: translate(-500vw, 490px);
-    }
-  }
-  @keyframes lane8 {
-    0% {
-      transform: translate(100vw, 560px);
-    }
-    100% {
-      transform: translate(-500vw, 560px);
-    }
-  }
-  @keyframes lane9 {
-    0% {
-      transform: translate(100vw, 630px);
-    }
-    100% {
-      transform: translate(-500vw, 630px);
-    }
-  }
+  
 }
