@@ -30,7 +30,7 @@ $(document).ready(function(){
       }
     });
   
-    function update(){ //この関数では以下のことを行う
+    function update(){
       comments = setInterval(function() {
         var twitter_keyword = $('.twittertag').val();
         var youtube_url = $('.youtubeurl').val();
@@ -45,20 +45,16 @@ $(document).ready(function(){
           type: 'GET', 
           data: { //railsに引き渡すデータ
             "twitter_keyword": twitter_keyword,
-            "youtube_url": youtube_url,
             'latest_tweet_id': latest_tweet_id,
+            "youtube_url": youtube_url,
             'next_page_token': next_page_token,
             'chat_id': chat_id,
-            'target': {
-              'Twitter': true,
-              'Youtube': true 
-            }
           },
           dataType: 'script'
         });
         
         count = count + 1;
-      }, 7000);
+      }, 5500);
       
     }
     

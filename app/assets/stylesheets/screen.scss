@@ -1,19 +1,4 @@
 #screen {
-  .comment {
-    color: white;
-    /* font-size: 50px; */
-    font-weight: bolder;
-    text-shadow: black 0 0 5px;
-  
-    /* 改行しない */
-    white-space: nowrap;
-  
-    /* ポジションを固定する */
-    position: absolute;
-  
-    /* 文字の行間を調節する */
-    line-height: 1;
-  }
   
   /* 全体に適用 */
   * {
@@ -66,4 +51,7 @@
     background-image: url('/images/youtube.png');
   }
   
+  .youtubeStyle::before {
+    margin-bottom: -8px;
+  }
 }

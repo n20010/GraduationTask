@@ -34,7 +34,7 @@
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
-    height: 1500px;
+    height: 1080px;
   }
   
   #footer {
@@ -56,6 +56,10 @@
     justify-content: space-between;
     align-items: flex-start;
     margin: 0px auto;
+  }
+  
+  .wrapper-select-button {
+    margin: 0px;
   }
   
   #content {
@@ -129,18 +133,6 @@
     // 文字の行間を調節する
     line-height: 1;
   
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
-    animation-duration: 50s;
-    animation-name: lane;
-    transform: translateX(700px);
-  }
-  
-  
-  @keyframes lane {
-    100% {
-      transform: translateX(-6500px);
-    }
   }
   
   //Middle CSS
@@ -149,13 +141,14 @@
     height: 60%;
     align-items: center;
   }
+  
   .middle-wrapper {
-    height: 40%;
+    height: 25%;
     align-items: center;
   }
   
   .box {
-    height: 150px;
+    height: 100%;
     padding-bottom: 20px;
     //width: 50%;
     //display: flex;
@@ -165,7 +158,11 @@
   }
   
   .box-form {
-    height: 30%;
+    height: 40%;
+  }
+  
+  .twitter {
+    height: 35%;
   }
   
   .form-floating {
@@ -182,6 +179,10 @@
   
   .fontSize {
     width: 47%;
+  }
+  
+  .wrapper-fontSize {
+    justify-content: normal;
   }
   
   .form-range {

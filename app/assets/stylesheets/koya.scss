@@ -51,4 +51,30 @@
     font-weight: bold;
     text-shadow: black 0 0 3px;
   }
+
+  .container-sm {
+    padding-right: none;
+    padding-left: none;
+  }
+  
+  .index-label-outputFormat {
+    margin-left: 0%;
+  }
+  
+  .format-box {
+    display: flex;
+    justify-content: left;
+  }
+  
+  .format-icon {
+    padding-top: 4%;
+    align-items: center;
+  }
+  .format-description {
+    padding-top: 3%;
+    padding-left: 8%;
+  }
+  .main-description {
+    margin-bottom: 0.2rem;
+  }
 }

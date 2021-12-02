@@ -18,6 +18,11 @@ consumer.subscriptions.create("RoomChannel", {
       
       console.log("[*] received some messages from Room_channnel")
       const screen = document.querySelector('.screen');
+      const color = document.getElementById('color')
+      const size = document.getElementById('fontSize')
+      const opacity = document.getElementById('opacity')
+      const weight = document.getElementById('weight')
+      const format = document.getElementById('format')
       
       //時間差をつけてコメントを描写関数へ送る
       const randomTime = (comment, format) => {
@@ -27,25 +32,63 @@ consumer.subscriptions.create("RoomChannel", {
         }, random)
       }       
       
+      // MAIN FUNCTION
       if (data["message"]["comments"]) {
+        var id_sender = data["message"]["session"]
         var comments = data["message"]["comments"];
-        var comments_count = Object.keys(comments).length;
-  
-        for (let i = 0; i < comments_count; i++) {
-          randomTime(comments[i].text, comments[i].target)
+        var status = data["message"]["status"]; 
+        
+        const searchParams = new URLSearchParams(window.location.search)
+        var id_query = searchParams.get('id')
+        if (id_query == id_sender){
+          // セッションがOKならメイン処理を実行
+          console.log("[*] clear cookie authentication ")
+          
+          var comments_count = Object.keys(comments).length;
+          for (let i = 0; i < comments_count; i++) {
+            randomTime(comments[i].text, comments[i].target)
+          }
+          
+          if (status == false) {
+            console.log("[-] Failure to get comments from Youtube")
+          }
+          
+        }else{
+          console.log("[-] failure cookie authetication")
         }
+        
       }
       
+      // Execute this process when data sent from changeStyles action
+      if (!data["message"]["styles"] == false) {
+        var styles = data["message"]["styles"];
+        size.setAttribute('value', styles["fontSize"])
+        opacity.setAttribute('value', styles["opacity"])
+        weight.setAttribute('value', styles["weight"])
+        
+        if (format != styles["format"]) {
+          screen.innerHTML = ''
+          
+          if (styles["format"] == "youtube") {
+            const container = document.createElement('div')
+            container.classList.add('container')
+            screen.appendChild(container)
+            size.setAttribute('value', '25px')
+          }
+          format.setAttribute('value', styles["format"])
+        }
+        
+      }
       
       //描写関数
       const createComment = (text, media) => {
         const width = document.documentElement.clientWidth
         const height = document.documentElement.clientHeight
-        const format = 'niconico'
+        const format_value = format.getAttribute('value')
         
         // スタイルを指定
       
-        if (format == 'niconico') {
+        if (format_value == 'niconico') {
           const comment = document.createElement('div')
           comment.innerHTML = text
           
@@ -65,7 +108,7 @@ consumer.subscriptions.create("RoomChannel", {
           // コメントの削除
           setTimeout(() => comment.remove(), 30000)
           
-        } else if (format == 'youtube') {
+        } else if (format_value == 'youtube') {
           const comment = document.createElement('div')
           comment.innerHTML = text
       
@@ -80,16 +123,14 @@ consumer.subscriptions.create("RoomChannel", {
       }
       
       const addAnimation = (comment, target) => {
-        const color = document.getElementById('color')
-        const size = document.getElementById('fontSize')
-        const opacity = document.getElementById('opacity')
         comment.style.color = color.getAttribute('value')
-        comment.style.fontSize = size.getAttribute('value')
+        comment.style.fontSize = size.getAttribute('value') + 'px'
         comment.style.opacity = opacity.getAttribute('value')
-        comment.style.display = "flex"
-        comment.style.alignItems = 'center'
-        //comment.style.fontWeight = weight
+        comment.style.fontWeight = weight.getAttribute('value') + 'px'
         comment.classList.add(target)
+        if (target == "youtube") {
+          comment.classList.add('youtubeStyle')
+        }
       }
       
       const mediaIcon = (comment, media) => {

@@ -12,17 +12,25 @@ class CommentsController < ApplicationController
     @comments = {} # 全てのコメントはこれに入れてフロントへ送る
     comment_count = 0 # 上記commentsハッシュに入ってるコメントの数
     
+    #セッションIDを作成
+    if session[:user_id]
+      @session_id = session[:user_id]
+    else
+      @session_id = rand(1..10000000000) 
+      session[:user_id] = @session_id
+    end
+      
     @keyword = params[:twitter_keyword]
     
     if request.xhr? # jQuery(Ajax)からの呼び出しか判定
       
       # Twitter ===================================================================================
-      if params[:target][:Twitter] == "true"
+      if params[:twitter_keyword] != ""
         twitter = TwitterApi.new()
         
         begin
           # 最新のツイートのみリストで取得
-          tweets, @latest_tweet_id = twitter.search(@keyword, 5, params[:latest_tweet_id])
+          tweets, @latest_tweet_id = twitter.search(@keyword, 10, params[:latest_tweet_id])
           tweets_regexed = twitter.regex(tweets)
           comment_count = push_comments(tweets_regexed, comment_count)
           
@@ -36,14 +44,14 @@ class CommentsController < ApplicationController
       
       # Youtube ===================================================================================
       @next_page_token = params[:next_page_token] # 前回取得時のnextPageToken(初回は0)
-      if params[:target][:Youtube] == "true"
+      if params[:youtube_url] != ""
         key = Settings.youtube_api.main_key # API Key
         youtube_uri_head = 'https://www.googleapis.com/youtube/v3/'
         youtube_url = params[:youtube_url]
         video_id = youtube_url.match(/https:.+v=(.+)$/)[1]
         @video_id = video_id
         @chat_id = params[:chat_id]
-        if @chat_id = 0
+        if @chat_id == ""
           @chat_id = youtube_get_chatId(key, youtube_uri_head, @video_id)
         end
         youtube_quantity = 5 # 取得するコメントの数
@@ -53,18 +61,22 @@ class CommentsController < ApplicationController
           key, youtube_uri_head, @chat_id, youtube_quantity, @next_page_token)
         
         if res_getChat_json["items"] != []
-          res_getChat_list_standard = youtube_fix_comments_list_standard(res_getChat_json)
+          res_getChat_list_standard, youtube_status = youtube_fix_comments_list_standard(res_getChat_json)
           comment_count = push_comments(res_getChat_list_standard.reverse, comment_count)
         end
       end #=========================================================================================
       
       
     else # Ajaxリクエストじゃなかった場合
-      # Chat Idを取得
     end
-      
+    
     ActionCable.server.broadcast'room_channel',
-    message:  {:comments => @comments, :styles => false}
+    message:  {
+      :comments => @comments, 
+      :styles => false, 
+      :session => @session_id,
+      :status => youtube_status
+    }
     
     #Ajaxリクエストならjsを返す
     respond_to do |format|
@@ -109,10 +121,16 @@ class CommentsController < ApplicationController
   
   def youtube_fix_comments_list_standard(res_getChat_json)
     res_getChat_list = []
-    for item in res_getChat_json["items"] do
-      res_getChat_list.push({:target => "Youtube", :text => item["snippet"]["displayMessage"]})
+    status = true
+    items = res_getChat_json["items"]
+    if items #コメントが取得できたら配列にコメントを格納
+      for item in res_getChat_json["items"] do
+        res_getChat_list.push({:target => "Youtube", :text => item["snippet"]["displayMessage"]})
+      end
+    else
+      status = false
     end
-    return res_getChat_list
+    return res_getChat_list, status
   end
   
   
@@ -127,7 +145,11 @@ class CommentsController < ApplicationController
 
   def changeStyles
     ActionCable.server.broadcast'room_channel',
-    message:  {:comments => false, :styles => JSON.parse(params[:settings])}
+    message:  {
+      :comments => false, 
+      :styles => JSON.parse(params[:settings]),
+      :session => @session_id
+    }
   end
   
 end

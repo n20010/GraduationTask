@@ -5,19 +5,22 @@ $(document).ready( function() {
   if (location.pathname == "/"){
     console.log('[*] loaded index.js')
     
-    let fontSize = 30;
+    let fontSize = 50;
     let fontSpeed = 50;
-    let tag = '';
-    let check = false;
+    let weight = 600;
+    let opacity = 1;
+    let format = 'niconico';
     
     $("#button_refresh").click(function(){
       let settings = {
           fontSize: fontSize,
           fontSpeed: fontSpeed,
-          check: check,
-          tag: tag
+          weight: weight,
+          opacity: opacity,
+          format: format
        };
       settings = JSON.stringify(settings);
+      console.log(settings)
       console.log("[*] send settings")
       
       $.ajax({
@@ -30,74 +33,23 @@ $(document).ready( function() {
       
     });
     
-    /*
-    フォントサイズ
-    */
-    
-    $(".form-range").on("input", function(){
+    //フォントサイズ
+    $("#form-range-size").on("input", function(){
       $(".sample").css('fontSize', `${$(this).val()}px`);
       fontSize = $(this).val();
     });
     
-    /*
-    スピード
-    */
-    
-    $(".speed").on("click", function(){
-      valueSpeed($(this).val());
-      $('.sample').css('animation-duration', String(fontSpeed) + 's');
+    //透明度
+    $("#form-range-opacity").on("input", function(){
+      $(".sample").css('opacity', $(this).val());
+      opacity = $(this).val();
     });
     
-    const valueSpeed = value => {
-      switch (value) {
-        case '遅い':
-          fontSpeed = 80;
-          break;
-        case '普通':
-          fontSpeed = 50;
-          break;
-        case '速い':
-          fontSpeed = 30;
-          break;
-      }
-    };
+    // 選択した描写タイプを設定
+    $('.radio').on("click", function(){
+      format = $(this).attr("id")
+    })
     
-    /*
-    チェックボックス
-    */
     
-    $('.checkTwitter').change(function(){
-      check = $(this).is(':checked');
-    });
-    
-    /*
-    Twitterハッシュタグ
-    */
-    
-    $('.twitterTag').on('input', function() {
-      tag = $(this).val();
-    });
-    
-    const createAnimation = () => {
-      const box = document.createElement('span');
-      var generateSpanClass = 'sample' + String(span_count)
-      box.innerHTML = "HELLO WORLD";
-      box.classList.add('sample');
-      box.classList.add(generateSpanClass)
-      box.style.fontSize = String(fontSize) + 'px';
-      box.style.animationDuration = String(fontSpeed) + 's';
-      screen.appendChild(box);
-      setTimeout(function(){
-        $('.' + generateSpanClass).remove()
-      }, 8900);
-    };
-    
-    const screen = document.querySelector('.div-top');
-    var span_count = 0
-    createAnimation()
-    const sampleAnimation = setInterval(function() {
-      createAnimation()
-      span_count++;
-    }, 10000)
   }
 })

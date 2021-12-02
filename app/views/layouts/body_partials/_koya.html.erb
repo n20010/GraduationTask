@@ -1,21 +1,36 @@
 <div class="container-sm d-flex flex-column justify-content-center">
     <!-- フォーマット -->
-    <div class="container-fluid d-flex flex-column justify-content-center mt-3">
-      <div class="h3">出力フォーマットの選択</div>
+    <div class="d-flex flex-column justify-content-center mt-3">
+      <h3 class="index-label index-label-outputFormat">OUTPUT FORMAT</h3>
 
-      <div class="container-fluid d-flex justify-content-center">
-        <input
-          type="radio"
-          class="radio"
-          id="niconico"
-          name="format"
-          value="niconico"
-          checked
-        /><label for="niconico">ニコニコ</label>
-        <input type="radio" class="radio" id="youtube" name="format" value="youtube" /><label
-          for="youtube"
-          >Youtube</label
-        >
+      <div class="wrapper wrapper-select-button">
+        <div class="fontSize format-box">
+          <div class="format-icon">
+            <div>
+            <input type="radio" class="radio" id="niconico" name="format" value="niconico" checked/>
+            <label for="niconico"></label>
+            </div>
+          </div> 
+          <div class="format-description">
+            <h2>niconico format</h2>
+            <p class="main-description">Generating comments like niconico</p>
+            <p class="main-description">comments will be move right to left</p>
+            <p class="main-description"> You can change some parameters</p>
+          </div>
+        </div>
+        
+        <div class="fontSize format-box">
+          <div class="format-icon">
+            <input type="radio" class="radio" id="youtube" name="format" value="youtube" />
+            <label for="youtube"></label>
+          </div>
+          <div class="format-description">
+            <h2>youtube format</h2>
+            <p class="main-description">Generating comments like Youtube</p>
+            <p class="main-description">Comments will be move top to bottom</p>
+            <p class="main-description">You can change a bit parameters</p>
+          </div>          
+        </div>
       </div>
     </div>
 </div>

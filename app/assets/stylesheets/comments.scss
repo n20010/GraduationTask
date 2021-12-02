@@ -1,0 +1,60 @@
+#screen {
+  
+  //niconico format css
+  :root {
+    --translateX: -1000px;
+  }
+  
+  .niconico {
+    /* ポジションを固定する */
+    position: fixed;
+  
+    /* 改行しない */
+    white-space: nowrap;
+  
+    text-shadow: black 0 0 3px;
+  }
+  
+  .animation {
+    animation: 10s linear 0s 1 forwards lane;
+  }
+  
+  @keyframes lane {
+    100% {
+      transform: translateX(var(--translateX));
+    }
+  }
+  
+  //youtube format css
+  .container {
+    width: 20%;
+    height: 50%;
+    overflow: scroll;
+    /* border: 3px solid #000000; */
+    /* background-color: rgba(15, 0, 0, 0.1); */
+    /* margin: 3px; */
+  }
+  
+  /* 新しく追加 */
+  .container {
+    position: absolute;
+    top: 45%;
+    left: 20px;
+  }
+  
+  .fix_position {
+    height: 480px;
+  }
+  
+  .container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .youtube {
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 10px;
+  
+    text-shadow: 0px 0px 3px #000000, 0px 0px 3px black, 0px 0px 5px black;
+  }
+}
