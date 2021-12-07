@@ -65,18 +65,10 @@ class ApplicationController < ActionController::Base
         text_regexed = tweet[:text]
         .gsub(/\n/, " ")
         .gsub(/https.*/, "[メディアあり]")
-        p "=========================================="
-        p keyword
-        p "=========================================="
+        
         if keyword.match(/^#.*$/)
-          text_regexed.gsub(/#.*[ 　]/, ' ')
-        p "=========================================="
-        p 'yes'
-        p "=========================================="
+          text_regexed = text_regexed.gsub(/#.*[ 　]/, ' ')
         else
-        p "=========================================="
-        p 'no' 
-        p "=========================================="
         
           
         end
