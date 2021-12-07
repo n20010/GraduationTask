@@ -36,5 +36,6 @@ group :test do
 end
 
 group :production do
+  gem 'pg', '1.1.4'
   gem 'unicorn', '5.4.1'
 end
