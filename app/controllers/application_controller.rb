@@ -62,8 +62,10 @@ class ApplicationController < ActionController::Base
     def regex(tweets)
       tweets_regexed = []
       tweets.each do |tweet|
-        text_regexed = tweet[:text].gsub(/\n/, " ")
+        text_regexed = tweet[:text]
+        .gsub(/\n/, " ")
         .gsub(/https.*/, "[URLメディアあり]")
+        .gsub(/#.*[ 　]/, ' ')
         
         if !(text_regexed.match(/^@[\s\S]*$/))
           tweets_regexed.push({target: "Twitter", text: text_regexed})
