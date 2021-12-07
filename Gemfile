@@ -16,7 +16,6 @@ gem 'config'
 gem 'minitest-reporters'
 gem 'google-api-client', '~> 0.11'
 gem 'twitch-api'
-gem 'redis'
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'
