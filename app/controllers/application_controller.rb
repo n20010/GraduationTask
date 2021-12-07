@@ -67,7 +67,8 @@ class ApplicationController < ActionController::Base
         .gsub(/https.*/, "[メディアあり]")
         
         if keyword.match(/^#.*$/)
-          text_regexed = text_regexed.gsub(/#.*[ 　]/, ' ')
+          keyword = keyword.gsub(/#/, '')
+          text_regexed = text_regexed.gsub(/##{keyword}/, ' ')
         else
         
           
