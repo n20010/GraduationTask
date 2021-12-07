@@ -68,7 +68,7 @@ class ApplicationController < ActionController::Base
         
         if keyword.match(/^#.*$/)
           keyword = keyword.gsub(/#/, '')
-          text_regexed = text_regexed.gsub(/##{keyword}[ 　\s\S]/, ' ')
+          text_regexed = text_regexed.gsub(/##{keyword}[\s\S]/, ' ')
         else
         
           
