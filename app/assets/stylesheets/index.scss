@@ -322,7 +322,15 @@
     
     #main {
       margin: 50px 0;
-      height: 1300px;
+      height: 1500px;
+    }
+    
+    .top {
+      height: 25%;
+    }
+    
+    .middle {
+      height: 65%;
     }
     .wrapper {
       overflow: hidden;
@@ -336,11 +344,15 @@
     }
     
     .box-form {
-      height: 50%;
+      height: 45%;
+    }
+    
+    .twitter {
+      height: 15%;
     }
     .middle-wrapper {
       width: 100%;
-      height: 50%;
+      height: 45%;
       align-items: center;
       margin: 0px;
       text-align: center;
@@ -354,6 +366,7 @@
     
     .box {
       margin: 10px auto;
+      height: 45%;
     }
     
     .fontSize {
