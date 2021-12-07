@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
         begin
           # 最新のツイートのみリストで取得
           tweets, @latest_tweet_id = twitter.search(@keyword, 10, params[:latest_tweet_id])
-          tweets_regexed = twitter.regex(tweets)
+          tweets_regexed = twitter.regex(tweets, @keyword)
           comment_count = push_comments(tweets_regexed, comment_count)
           
         rescue => exception
