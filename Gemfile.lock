@@ -270,7 +270,6 @@ GEM
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    redis (4.5.1)
     regexp_parser (1.8.2)
     representable (3.1.1)
       declarative (< 0.1.0)
@@ -382,7 +381,6 @@ DEPENDENCIES
   pg (= 1.1.4)
   puma (= 4.3.6)
   rails (= 6.0.3)
-  redis
   sass-rails (= 5.1.0)
   selenium-webdriver (= 3.142.4)
   spring (= 2.1.0)
