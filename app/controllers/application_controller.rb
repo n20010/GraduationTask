@@ -70,6 +70,10 @@ class ApplicationController < ActionController::Base
           text_regexed = text_regexed.gsub(/#{keyword}[ 　\n\r$]/, ' ')
         end
         
+        if keyword.match(/^＃.*$/)
+          text_regexed = text_regexed.gsub(/#{keyword}[ 　\n\r$]/, ' ')
+        end
+        
         if !(text_regexed.match(/^@[\s\S]*$/))
           tweets_regexed.push({target: "Twitter", text: text_regexed})
         end
