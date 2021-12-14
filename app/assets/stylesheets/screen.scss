@@ -27,31 +27,39 @@
     left: 0;
   }
   
-  .twitterIcon::before {
-    content: '';
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    border-radius: 100%;
-    margin-right: 5px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-image: url('/images/koya/twitter.png');
-  }
   
   .youtubeIcon::before {
     content: '';
     display: inline-block;
-    width: 30px;
-    height: 30px;
-    border-radius: 100%;
-    margin-right: 5px;
+    width: 40px;
+    height: 40px;
+    //border-radius: 100%;
+    margin-right: 10px;
+    margin-bottom: -8px;
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url('/images/koya/youtube.png');
+    background-image: url('/images/koya/yt_icon_rgb.png');
   }
   
   .youtubeStyle::before {
-    margin-bottom: -8px;
+    margin-bottom: -16px;
+  }
+  
+  .twitterIcon::before {
+    content: '';
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    margin-right: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('/images/koya/twitter.png');
+    .youtubeStyle {
+      width: 30px;
+      height: 30px;
+      margin-left: 5px;
+      margin-bottom: -8px;
+    }
   }
 }
