@@ -142,7 +142,7 @@ consumer.subscriptions.create("RoomChannel", {
         }
       }
       
-      const randomHeight = () => `${Math.round(Math.random() * 800)}px`
+      const randomHeight = () => `${Math.round(Math.random() * 900)}px`
       
     } //if(location.pathname == '/screen')
   } //received(data)
