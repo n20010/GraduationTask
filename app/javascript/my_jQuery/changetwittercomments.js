@@ -1,5 +1,7 @@
 /* global $ */
 /* global location */
+import * as workerTimers from 'worker-timers';
+
 
 $(document).ready(function(){
   if (location.pathname == "/") {
@@ -31,7 +33,7 @@ $(document).ready(function(){
     });
   
     function update(){
-      comments = setInterval(function() {
+      comments = workerTimers.setInterval(function() {
         var twitter_keyword = $('.twittertag').val();
         var youtube_url = $('.youtubeurl').val();
         var latest_tweet_id = $('#latest_tweet_id').val();
@@ -59,7 +61,7 @@ $(document).ready(function(){
     }
     
     function stop_update(){
-      clearInterval(comments);
+      workerTimers.clearInterval(comments);
       console.log("=".repeat(20));
       console.log("[-] Search function is stopped");
     }
