@@ -12,21 +12,33 @@
     background-repeat: no-repeat;
     width: 120px;
     height: 120px;
+    max-width: 100%;
+    max-height: 100%;
   }
   
   .radio:checked + label::after {
-    border: thick solid #32a1ce;
+    //border: thick solid #32a1ce;
     box-sizing: border-box;
   }
   
+  .format-icon {
+    align-items: center;
+    width: 120px;
+    height: 120px;
+  }
+  
+  .niconico-title {
+    color: #ff0000;
+  }
   .radio[value='niconico'] + label:after {
     background-image: url("/images/koya/niconico.png");
-    border-radius: 100%;
+    //border-radius: 100%;
   }
   
   .radio[value='youtube'] + label:after {
-    background-image: url("/images/koya/youtube.png");
-    border-radius: 100%;
+    background-image: url("/images/koya/yt_icon_rgb.png");
+    margin-top: 20px;
+    //border-radius: 100%;
   }
   
   .sticky_h {

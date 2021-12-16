@@ -50,6 +50,15 @@ $(document).ready( function() {
       format = $(this).attr("id")
     })
     
+    $('.niconico-label').on("click", function(){
+      $('.niconico-title').css('color', '#ff0000')
+      $('.youtube-title').css('color', '#000000')
+    })
+    
+    $('.youtube-label').on("click", function(){
+      $('.youtube-title').css('color', '#ff0000')
+      $('.niconico-title').css('color', '#000000')
+    })
     
   }
 })
