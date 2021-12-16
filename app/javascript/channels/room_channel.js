@@ -34,12 +34,12 @@ consumer.subscriptions.create("RoomChannel", {
       
       // MAIN FUNCTION
       if (data["message"]["comments"]) {
-        var id_sender = data["message"]["session"]
+        var id_sender = data["message"]["session"];
         var comments = data["message"]["comments"];
         var status = data["message"]["status"]; 
         
         const searchParams = new URLSearchParams(window.location.search)
-        var id_query = searchParams.get('id')
+        var id_query = searchParams.get('id');
         if (id_query == id_sender){
           // セッションがOKならメイン処理を実行
           console.log("[*] clear cookie authentication ")
@@ -67,13 +67,14 @@ consumer.subscriptions.create("RoomChannel", {
         weight.setAttribute('value', styles["weight"])
         
         if (format != styles["format"]) {
-          screen.innerHTML = ''
           
           if (styles["format"] == "youtube") {
             const container = document.createElement('div')
             container.classList.add('container')
             screen.appendChild(container)
             size.setAttribute('value', '25px')
+          } else {
+            screen.innerHTML = ''
           }
           format.setAttribute('value', styles["format"])
         }

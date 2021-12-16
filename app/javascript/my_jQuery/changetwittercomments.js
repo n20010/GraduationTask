@@ -15,6 +15,7 @@ $(document).ready(function(){
         console.log("[*] Search function is running");
         console.log("[*] Send 10 request every 7 seconds");
         
+        $('.btn--reset').remove()
         $(this).removeClass("btn--deactive");
         $(this).addClass("btn--active");
         $(this).html("STOP GENERATE");
