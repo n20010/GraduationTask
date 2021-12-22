@@ -2,6 +2,16 @@
 
 ## インストールガイド
 
+#### APIキーの用意
+本アプリケーションはYoutubeとTwitterのAPIを使用しています。
+登録後、.envファイル(開発環境)かHEROKUのconfig設定(本番環境)で下記の環境変数を設定してください。
+- TWITTER_CONSUMER_KEY
+- TWITTER_CONSUMER_SECRET
+- TWITTER_ACCESS_TOKEN
+- TWITTER_ACCESS_TOKEN_SECRET
+- TWITTER_BEARER_TOKEN
+- YOUTUBE_TOKEN
+
 ### 開発環境編
 AWS提供のCloud9を用いる
 ```Terminal
