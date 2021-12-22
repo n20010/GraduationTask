@@ -5,6 +5,9 @@
 ### 開発環境編
 AWS提供のCloud9を用いる
 ```Terminal
+# ソースコードをCLONE
+$ git clone https://github.com/n20010/graduationtask.git
+
 # バージョンを指定してRailsをインストールする
 $ gem install rails -v 6.0.3
 
@@ -17,6 +20,7 @@ $ source <(curl -sL https://cdn.learnenough.com/yarn_install)
 $ yarn install --check-files
 
 # 必要なRubyGemsをインストール
+$ cd graduationtask
 $ bundle install --without production
 
 ## node関係でトラブルが発生した場合
@@ -30,6 +34,8 @@ $ rails s
 
 ### 本番環境編
 HEROKUへのデプロイ
+>HEROKUのアカウントが必要
+>https://jp.heroku.com/free
 
 ```Terminal
 # 本番用以外のgemをインストールする
