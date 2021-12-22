@@ -45,3 +45,17 @@ $ git push heroku master
 ```
 
 ## 使い方ガイド
+基本の使い方
+1. Twitterの検索キーワードまたはYouTubeの配信URLを貼り付ける
+2. GENERATEをクリック
+3. SCREENページを開く
+4. SCREENページをOBSのブラウザソースで取り込む
+
+オプション
+- FONT SIZE => 生成するコメントのフォントサイズを設定する
+- OPACITY => 生成するコメントの透明度を設定する
+- NICOINCO MODE => ニコニコ動画のようにコメントを出力する
+- YOUTUBE MODE => YouTubeの配信のようにコメントを出力する
+```
+オプションを変更したら左下の「Update Settings」をクリックして反映
+```
