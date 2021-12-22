@@ -66,7 +66,8 @@ consumer.subscriptions.create("RoomChannel", {
         opacity.setAttribute('value', styles["opacity"])
         weight.setAttribute('value', styles["weight"])
         
-        if (format != styles["format"]) {
+        
+        if (!format == styles["format"]) {
           
           if (styles["format"] == "youtube") {
             const container = document.createElement('div')
