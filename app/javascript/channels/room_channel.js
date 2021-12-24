@@ -62,9 +62,13 @@ consumer.subscriptions.create("RoomChannel", {
       // Execute this process when data sent from changeStyles action
       if (!data["message"]["styles"] == false) {
         var styles = data["message"]["styles"];
-        size.setAttribute('value', styles["fontSize"])
-        opacity.setAttribute('value', styles["opacity"])
-        weight.setAttribute('value', styles["weight"])
+        console.log(styles)
+        
+        if (styles["format"] == 'niconico') {
+          size.setAttribute('value', styles["fontSize"])
+          opacity.setAttribute('value', styles["opacity"])
+          weight.setAttribute('value', styles["weight"])
+        }
         
         if (format.getAttribute('value') != styles["format"]) {
           
@@ -73,6 +77,7 @@ consumer.subscriptions.create("RoomChannel", {
             container.classList.add('container')
             screen.appendChild(container)
             size.setAttribute('value', '25px')
+            opacity.setAttribute('value', '1')
           } else {
             screen.innerHTML = ''
           }
@@ -130,7 +135,9 @@ consumer.subscriptions.create("RoomChannel", {
         comment.style.fontWeight = weight.getAttribute('value') + 'px'
         comment.classList.add(target)
         if (target == "youtube") {
-          comment.classList.add('youtubeStyle')
+          comment.classList.add('youtubemode')
+        } else {
+          comment.classList.add('niconicomode')
         }
       }
       

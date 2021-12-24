@@ -27,7 +27,6 @@
     left: 0;
   }
   
-  
   .youtubeIcon::before {
     content: '';
     display: inline-block;
@@ -35,14 +34,10 @@
     height: 40px;
     //border-radius: 100%;
     margin-right: 10px;
-    margin-bottom: -8px;
+    margin-bottom: -12px;
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url('/images/koya/yt_icon_rgb.png');
-  }
-  
-  .youtubeStyle::before {
-    margin-bottom: -16px;
   }
   
   .twitterIcon::before {
@@ -52,14 +47,18 @@
     height: 35px;
     border-radius: 100%;
     margin-right: 10px;
+    margin-bottom: -4px;
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url('/images/koya/twitter.png');
-    .youtubeStyle {
-      width: 30px;
-      height: 30px;
-      margin-left: 5px;
-      margin-bottom: -8px;
+  }
+  
+  .youtubemode {
+    .youtubeIcon::before & {
+      margin-bottom: -20px;
+    }
+    .twitterIcon::before & {
+      margin-bottom: 20px;
     }
   }
 }
