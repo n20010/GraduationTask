@@ -12,7 +12,7 @@
     /* 改行しない */
     white-space: nowrap;
   
-    text-shadow: black 0 0 3px, black 0 0 3px,black 0 0 3px,black 0 0 3px, black 0 0 3px;
+    text-shadow: black 0 0 3px, black 0 0 3px,black 0 0 3px,black 0 0 3px, black 0 0 3px, black 0 0 3px, black 0 0 3px;
   }
   
   .animation {
@@ -27,7 +27,7 @@
   
   //youtube format css
   .container {
-    width: 30%;
+    width: 27%;
     height: 70%;
     overflow: scroll;
     /* border: 3px solid #000000; */
@@ -56,6 +56,6 @@
     margin-bottom: 10px;
   
     //text-shadow: 0px 0px 3px #000000, 0px 0px 3px black, 0px 0px 5px black;
-    text-shadow: black 0 0 3px, black 0 0 3px, black 0 0 3px,black 0 0 3px, black 0 0 3px;
+    text-shadow: black 0 0 3px, black 0 0 3px,black 0 0 3px,black 0 0 3px, black 0 0 3px, black 0 0 3px, black 0 0 3px;
   }
 }
