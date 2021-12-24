@@ -5,7 +5,7 @@ $(document).ready( function() {
   if (location.pathname == "/"){
     console.log('[*] loaded index.js')
     
-    let fontSize = 50;
+    let fontSize = 38;
     let fontSpeed = 50;
     let weight = 600;
     let opacity = 1;

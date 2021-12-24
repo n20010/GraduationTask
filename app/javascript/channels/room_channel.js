@@ -76,7 +76,7 @@ consumer.subscriptions.create("RoomChannel", {
             const container = document.createElement('div')
             container.classList.add('container')
             screen.appendChild(container)
-            size.setAttribute('value', '25px')
+            size.setAttribute('value', '30px')
             opacity.setAttribute('value', '1')
           } else {
             screen.innerHTML = ''
